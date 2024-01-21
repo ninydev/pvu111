@@ -1,0 +1,6 @@
+/home/keeper/.jdks/openjdk-21.0.2/bin/java
+    -javaagent:/snap/intellij-idea-ultimate/470/lib/idea_rt.jar=46667:/snap/intellij-idea-ultimate/470/bin
+    -Dfile.encoding=UTF-8
+    -Dsun.stdout.encoding=UTF-8
+    -Dsun.stderr.encoding=UTF-8
+    -classpath /home/keeper/IdeaProjects/pvu111/Lesson1_maven/target/classes org.example.Main
