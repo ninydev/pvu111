@@ -1,27 +1,22 @@
 package org.example.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-
 import java.util.Date;
 import java.util.UUID;
 
-@Data
-@AllArgsConstructor
-public class User {
-    private User(){
+public class User_NoLomBok {
+    private User_NoLomBok(){
         this.id = UUID.randomUUID();
         this.createdAt = new Date();
         this.updatedAt = new Date();
     }
 
-    public User(String name)
+    public User_NoLomBok(String name)
     {
         this();
         this.name = name;
     }
 
-    public User(String name, String email, String password)
+    public User_NoLomBok(String name, String email, String password)
     {
         this(name);
         this.email = email;
@@ -34,11 +29,9 @@ public class User {
         return super.toString() + " => { \n" +
                 "id: " + this.id + "\n" +
                 "name: " + this.name + "\n" +
-                "age: " + this.age + "\n" +
                 "email: " + email + "\n" +
                 "password: " + password + "\n" +
                 "updatedAt: " + this.updatedAt.toString() + "\n" +
-
                 "} \n"
                 ;
     }
