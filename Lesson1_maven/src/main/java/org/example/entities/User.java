@@ -5,6 +5,7 @@ import lombok.Data;
 import org.example.exceptions.PasswordLengthException;
 import org.example.exceptions.PasswordRegexException;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
 import java.util.regex.Matcher;
@@ -15,19 +16,37 @@ public class User {
 
     private Group group;
 
+    private static Group baseGroup = new Group("Base", new ArrayList<User>());
+    public static User createEntity() {
+        User res = new User();
+        res.setGroup(baseGroup);
+        return  res;
+    }
+
+    public static User createEntity(String name) {
+        User res = new User(name);
+        res.setGroup(baseGroup);
+        return  res;
+    }
+    public static User createEntity(String name, String email, String password) throws PasswordLengthException, PasswordRegexException {
+        User res = new User(name, email, password);
+        res.setGroup(baseGroup);
+        return  res;
+    }
+
     private User(){
         this.id = UUID.randomUUID();
         this.createdAt = new Date();
         this.updatedAt = new Date();
     }
 
-    public User(String name)
+    private User(String name)
     {
         this();
         this.name = name;
     }
 
-    public User(String name, String email, String password) throws PasswordLengthException, PasswordRegexException {
+    private User(String name, String email, String password) throws PasswordLengthException, PasswordRegexException {
         this(name);
         this.email = email;
         // this.password = password;
@@ -62,11 +81,11 @@ public class User {
             // Как написать код так, что бы пользователь в таком случае не создавался
             throw new PasswordLengthException("password.length");
         }
-        Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
-        Matcher matcher = pattern.matcher(password);
-        if (!matcher.matches()) {
-            throw new PasswordRegexException("password.regex");
-        }
+//        Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
+//        Matcher matcher = pattern.matcher(password);
+//        if (!matcher.matches()) {
+//            throw new PasswordRegexException("password.regex");
+//        }
 
         this.password = "MD5(" + password + ")";
     }

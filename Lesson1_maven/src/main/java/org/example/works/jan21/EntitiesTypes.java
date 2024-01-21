@@ -12,7 +12,7 @@ public class EntitiesTypes implements Runnable
     private void byGroups() {
         Group pvu111 = new Group("PVU", new ArrayList<User>());
         try {
-            User nastya = new User("Nastya", "test@email.com", "Qwerty123");
+            User nastya = User.createEntity("Nastya", "test@email.com", "Qwerty123");
             // Настя является членом группы
             nastya.setGroup(pvu111);
 
