@@ -2,13 +2,19 @@ package org.example.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.example.exceptions.PasswordLengthException;
+import org.example.exceptions.PasswordRegexException;
 
 import java.util.Date;
 import java.util.UUID;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Data
-@AllArgsConstructor
 public class User {
+
+    private Group group;
+
     private User(){
         this.id = UUID.randomUUID();
         this.createdAt = new Date();
@@ -21,8 +27,7 @@ public class User {
         this.name = name;
     }
 
-    public User(String name, String email, String password)
-    {
+    public User(String name, String email, String password) throws PasswordLengthException, PasswordRegexException {
         this(name);
         this.email = email;
         // this.password = password;
@@ -49,7 +54,20 @@ public class User {
     private String email;
     private String password;
 
-    public void setPassword(String password) {
+    private static final String PASSWORD_PATTERN =
+            "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\\p{Punct}]).*$";
+
+    public void setPassword(String password) throws PasswordLengthException, PasswordRegexException {
+        if(password.length() < 3) {
+            // Как написать код так, что бы пользователь в таком случае не создавался
+            throw new PasswordLengthException("password.length");
+        }
+        Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
+        Matcher matcher = pattern.matcher(password);
+        if (!matcher.matches()) {
+            throw new PasswordRegexException("password.regex");
+        }
+
         this.password = "MD5(" + password + ")";
     }
 
