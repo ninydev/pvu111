@@ -1,14 +1,78 @@
 package org.example.works.jan21;
 
-import org.example.entities.Group;
-import org.example.entities.User;
+import org.example.entities.monitors.MonitorTypeInterface;
+import org.example.entities.monitors.MonitorType;
+import org.example.entities.monitors.PowerType;
+import org.example.entities.monitors.PowerTypeInterface;
+import org.example.entities.users.Group;
+import org.example.entities.users.User;
 import org.example.exceptions.PasswordLengthException;
 import org.example.exceptions.PasswordRegexException;
+import org.example.ui.button.ClickInterface;
+import org.example.ui.button.HoverInterface;
 
 import java.util.ArrayList;
 
 public class EntitiesTypes implements Runnable
 {
+    @Override
+    public void run() {
+        byButton();
+    }
+
+    private void byButton() {
+        ClickInterface button = new ClickInterface() {
+            @Override
+            public void click(Object event) {
+                System.out.println("Click Alert");
+            }
+        };
+
+        button.click(null);
+
+        HoverInterface hoverButton = new HoverInterface() {
+            @Override
+            public void onMouseOver(Object event) {}
+
+            @Override
+            public void onMouseOut(Object event) {}
+        };
+
+
+    }
+
+    private void byMonitor(){
+        // Monitor samsung = new Monitor();
+        // MonitorTypeInterface samsung = new Monitor();
+        MonitorTypeInterface someTypeMonitor = new MonitorTypeInterface() {
+            MonitorType type;
+
+            @Override
+            public MonitorType getInputType() {
+                return this.type;
+            }
+
+            @Override
+            public void setInputType(MonitorType type) {this.type = type;}
+        };
+        System.out.println(someTypeMonitor.getInputType());
+
+        PowerTypeInterface somePowerMonitor = new PowerTypeInterface() {
+            PowerType type;
+            @Override
+            public PowerType getPowerType() {
+                return type;
+            }
+
+            @Override
+            public void setPowerType(PowerType type) {
+                this.type = type;
+            }
+        };
+        System.out.println(somePowerMonitor.getPowerType());
+        // System.out.println(someMonitor.getPowerType());
+    }
+
     private void byGroups() {
         Group pvu111 = new Group("PVU", new ArrayList<User>());
         try {
@@ -43,10 +107,6 @@ public class EntitiesTypes implements Runnable
 
     }
 
-    @Override
-    public void run() {
-        byGroups();
-    }
 
     private void byEntities() {
         // User user = new User("Oleksandr Nykytin");

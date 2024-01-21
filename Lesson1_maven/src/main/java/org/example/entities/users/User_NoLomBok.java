@@ -1,4 +1,4 @@
-package org.example.entities;
+package org.example.entities.users;
 
 import java.util.Date;
 import java.util.UUID;
