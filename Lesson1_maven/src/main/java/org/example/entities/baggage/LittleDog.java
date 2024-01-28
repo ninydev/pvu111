@@ -5,4 +5,8 @@ public class LittleDog extends AbstractBaggage implements BaggageInterface {
     public int getSize() {
         return 0;
     }
+
+    public void eat(){
+        System.out.println(" Eat ");
+    }
 }

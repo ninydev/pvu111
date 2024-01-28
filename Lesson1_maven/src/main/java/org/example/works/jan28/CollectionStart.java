@@ -8,8 +8,11 @@ public class CollectionStart implements Runnable
 {
     @Override
     public void run() {
-
+        asInterface();
     }
+
+
+
     private void asInterface(){
         /**
          * Когда нужно выделить нечто важное в раках задачи
@@ -26,6 +29,21 @@ public class CollectionStart implements Runnable
                 return 0;
             }
         });
+
+        for (int i = 0; i < collection.size(); i++) {
+            System.out.println("Size: " + collection.get(i).getSize());
+
+            try {
+                ((LittleDog) collection.get(i)).eat();
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+
+            if(collection.get(i) instanceof LittleDog) {
+                System.out.println("Element " + i + " is a dog");
+                ((LittleDog) collection.get(i)).eat();
+            }
+        }
 
     }
     private void asChildren(){
