@@ -2,16 +2,84 @@ package org.example.works.jan28;
 
 import org.example.entities.baggage.*;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
+import java.util.*;
 
 public class CollectionStart implements Runnable
 {
     @Override
     public void run() {
-        asInterface();
+        asHash();
     }
+
+    private void asHash(){
+        HashSet<Basket> baskets = new HashSet<>();
+        Basket a = new Basket();
+        Basket b = new Basket();
+
+        baskets.add(a);
+        baskets.add(b);
+
+        // Этот объект не будет добавлен - он уже есть в коллекции
+        baskets.add(a);
+
+        for(Basket basket : baskets){
+            System.out.println(basket);
+        }
+    }
+
+    private void asMap() {
+        HashMap<String, String> redis = new HashMap<>();
+
+        redis.put("key", "value");
+
+        // Таким образом осущетсвляется кеширование
+        redis.put("allPost", "[{id:1, title='FirstPost'}, {id:2, title='SecondPost'}]");
+        redis.put("postId_1", "{id:1, title='FirstPost'}");
+        redis.put("cacheKey", "json form DB");
+    }
+
+    private void asTree(){
+        TreeSet<String> peopleSet = new TreeSet<>();
+        peopleSet.add("Vasya");
+        peopleSet.add("Petya");
+        peopleSet.add("Anna");
+        peopleSet.add("Galya");
+
+        // Реализация foreach в Java
+        for (String p: peopleSet) {
+            System.out.println(p);
+        }
+
+    }
+
+    private void asList() {
+        // List - interface
+        // ArrayList - class
+        List<BaggageInterface> arrList = new ArrayList<>();
+
+        // Одновсязный список - реализация структуры данных Stack
+        LinkedList<String> people = new LinkedList<>();
+        people.push("vasya");
+        people.push("petya");
+
+        String p;
+        // p=people.getFirst();
+//        p=people.pop();
+//        p= people.pop();
+
+        ArrayDeque<String> peopleDeque = new ArrayDeque<>();
+
+        peopleDeque.push("vasya");
+        peopleDeque.push("petya");
+
+        p= peopleDeque.getFirst();
+        p= peopleDeque.getLast();
+
+//        p= peopleDeque.pop();
+//        p= peopleDeque.pop();
+
+    }
+
 
     /**
      * Коллекция - как коробка - должна обладать набором методов работы с ней
