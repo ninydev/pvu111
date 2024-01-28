@@ -46,7 +46,7 @@ public class User {
         this.name = name;
     }
 
-    private User(String name, String email, String password) throws PasswordLengthException, PasswordRegexException {
+    public User(String name, String email, String password) throws PasswordLengthException, PasswordRegexException {
         this(name);
         this.email = email;
         // this.password = password;

@@ -1,11 +1,12 @@
 package org.example;
 
-import org.example.works.jan21.EntitiesTypes;
-import org.example.works.jan28.CollectionStart;
+import org.example.works.jan28.StreamApi;
 
 public class Main {
     public static void main(String[] args) {
-        Runnable classWork = new CollectionStart();
+        Runnable classWork = new StreamApi();
         classWork.run();
     }
+
+
 }
