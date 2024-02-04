@@ -6,9 +6,11 @@ public class ApiRequestSemaphoreJob implements Runnable
 {
     private Semaphore semaphore;
     private String url;
-    public ApiRequestSemaphoreJob (Semaphore semaphore, String url) {
+    CommonRes res;
+    public ApiRequestSemaphoreJob (Semaphore semaphore, String url, CommonRes res) {
         this.semaphore = semaphore;
         this.url = url;
+        this.res = res;
     }
 
     @Override
@@ -17,9 +19,12 @@ public class ApiRequestSemaphoreJob implements Runnable
         try {
             // Я жду - когда можно начать выполнять код
             this.semaphore.acquire();
-            // Я выполняю полезную нагрузку
-            this.work();
-            // Я сообщаю - что я все закончил
+            // Я фиксирую переменную с которой собираюсь работать
+            synchronized (this.res) {
+                // Я выполняю полезную нагрузку
+                this.work();
+                // Я сообщаю - что я все закончил
+            }
             this.semaphore.release();
 
         } catch (InterruptedException e) {
