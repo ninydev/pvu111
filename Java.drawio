@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-02-11T12:29:58.364Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36" etag="aRjdF4JAq-ICOMNyUvM2" version="23.1.2" type="device" pages="4">
+<mxfile host="app.diagrams.net" modified="2024-02-11T14:40:02.071Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36" etag="7fNrYjfqvaNjyk944Ehy" version="23.1.2" type="device" pages="4">
   <diagram name="Сторінка-1" id="6CkBflYlapU7UY46eusm">
     <mxGraphModel dx="1951" dy="898" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -209,7 +209,7 @@
         <mxCell id="h7oKFbn510KerLemsJKz-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="h7oKFbn510KerLemsJKz-19" target="h7oKFbn510KerLemsJKz-20">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="h7oKFbn510KerLemsJKz-19" value="Router" style="triangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="h7oKFbn510KerLemsJKz-19" value="Router" style="triangle;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
           <mxGeometry x="40" y="780" width="100" height="140" as="geometry" />
         </mxCell>
         <mxCell id="h7oKFbn510KerLemsJKz-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="h7oKFbn510KerLemsJKz-20" target="h7oKFbn510KerLemsJKz-21">
@@ -229,7 +229,7 @@
         <mxCell id="h7oKFbn510KerLemsJKz-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="h7oKFbn510KerLemsJKz-21" target="h7oKFbn510KerLemsJKz-33">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="h7oKFbn510KerLemsJKz-21" value="Controller" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+        <mxCell id="h7oKFbn510KerLemsJKz-21" value="Controller" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
           <mxGeometry x="380" y="820" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="h7oKFbn510KerLemsJKz-24" value="Request" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
@@ -254,7 +254,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="h7oKFbn510KerLemsJKz-29" value="Model&lt;br&gt;&lt;br&gt;Описание структуры данных" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+        <mxCell id="h7oKFbn510KerLemsJKz-29" value="Model&lt;br&gt;&lt;br&gt;Описание структуры данных" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
           <mxGeometry x="827" y="810" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="h7oKFbn510KerLemsJKz-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="h7oKFbn510KerLemsJKz-33">
@@ -262,7 +262,7 @@
             <mxPoint x="-30.000000000000227" y="900" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="h7oKFbn510KerLemsJKz-33" value="View" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+        <mxCell id="h7oKFbn510KerLemsJKz-33" value="View" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
           <mxGeometry x="270" y="970" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="h7oKFbn510KerLemsJKz-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="h7oKFbn510KerLemsJKz-34" target="h7oKFbn510KerLemsJKz-21">
