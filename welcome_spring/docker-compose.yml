@@ -1,0 +1,17 @@
+version: '3'
+services:
+
+  db.mysql.main:
+    image: mysql
+    volumes:
+      - ./volumes/db/mysql/main:/var/lib/mysql
+    env_file:
+      - .env
+    ports:
+      - '3306:3306'
+    networks:
+      - vpu111
+
+networks:
+  vpu111:
+    driver: bridge
