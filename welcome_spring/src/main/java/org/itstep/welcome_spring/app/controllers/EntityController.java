@@ -4,10 +4,7 @@ import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import org.itstep.welcome_spring.app.models.EntityModel;
 import org.itstep.welcome_spring.app.repositories.EntityRepository;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import org.springframework.data.domain.Page;
@@ -19,6 +16,7 @@ import org.slf4j.LoggerFactory;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/entity")
@@ -92,6 +90,55 @@ public class EntityController {
     }
 
 
+    /**
+     * Получение одной сущности
+     * @param id
+     * @return
+     */
+    @GetMapping("/{id}")
+    public ResponseEntity<EntityModel> readById(@PathVariable Long id) {
 
+        Optional<EntityModel> result = entityRepository.findById(id);
+
+        return result.map(
+          entityModel -> ResponseEntity.ok(entityModel))
+                .orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    /**
+     * Обновление сущности
+     * @param entity
+     * @param id
+     * @return
+     */
+    @PutMapping("/{id}")
+    public ResponseEntity<EntityModel> update(@RequestBody EntityModel entity, @PathVariable Long id) {
+        Optional<EntityModel> promise = entityRepository.findById(id);
+        if(promise.isPresent()) {
+            EntityModel updateEntity = promise.get();
+            updateEntity.setName(entity.getName());
+            updateEntity.setAge(entity.getAge());
+            entityRepository.save(updateEntity);
+            return ResponseEntity.ok(updateEntity);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    /**
+     * Удаление сущности
+     * @param id
+     * @return
+     */
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        Optional<EntityModel> promise = entityRepository.findById(id);
+        if(promise.isPresent()) {
+            entityRepository.deleteById(id);
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 
 }
