@@ -1,5 +1,7 @@
 package org.itstep.welcome_spring.app.services.auth;
 
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import jakarta.annotation.PostConstruct;
@@ -13,7 +15,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
 import java.security.Key;
+import java.util.Base64;
 import java.util.Date;
 
 @Service
@@ -27,6 +32,8 @@ public class JwtAdminService {
         this.adminRepository = adminRepository;
         this.passwordEncoder = passwordEncoder;
     }
+
+
 
     public AdminLoginResponse login(AdminLoginRequest loginRequest) {
         // Находим администратора по email
@@ -48,21 +55,41 @@ public class JwtAdminService {
     @Value("${jwt.admin.secret}")
     private String secretKey;
 
-    private Key key;
+    public Admin parseAccessToken(String accessToken) {
+        try {
+            byte[] decodedKey = Base64.getDecoder().decode(secretKey);
+            SecretKey key = new SecretKeySpec(decodedKey, 0, decodedKey.length, "HmacSHA256");
 
-    @PostConstruct
-    public void init() {
-        this.key = Keys.hmacShaKeyFor(secretKey.getBytes());
+            Jws<Claims> claims = Jwts.parser()
+                    .setSigningKey(key)
+                    .build()
+                    .parseClaimsJws(accessToken);
+
+            String adminIdString = claims.getBody().getSubject();
+            Long adminId = Long.parseLong(adminIdString);
+            String email = (String) claims.getBody().get("email");
+
+            // Создаем объект Admin
+            Admin admin = new Admin();
+            admin.setId(adminId);
+            admin.setEmail(email);
+
+            return admin;
+        } catch (Exception e) {
+            // В случае ошибки при парсинге токена или недействительного токена возвращаем null или бросаем исключение
+            return null;
+        }
     }
 
     // Метод для генерации JWT токена
     private String generateAccessToken(Long adminId, String email) {
+        Key key = Keys.hmacShaKeyFor(secretKey.getBytes());
         return Jwts.builder()
                 .setSubject(adminId.toString())
                 .claim("email", email)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + 3600000)) // Устанавливаем срок действия токена (1 час)
-                .signWith(this.key) // Здесь нужно использовать ваш секретный ключ
+                .signWith(key) // Здесь нужно использовать ваш секретный ключ
                 .compact();
     }
 }

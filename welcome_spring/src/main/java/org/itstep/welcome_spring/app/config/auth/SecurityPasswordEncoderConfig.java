@@ -1,4 +1,4 @@
-package org.itstep.welcome_spring.app.config;
+package org.itstep.welcome_spring.app.config.auth;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

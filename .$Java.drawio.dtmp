@@ -1,6 +1,6 @@
-<mxfile host="Electron" modified="2024-02-25T12:19:45.669Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.1.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="tbPLi5zW9HhcoW17teF5" version="23.1.5" type="device" pages="5">
+<mxfile host="Electron" modified="2024-03-03T12:06:05.309Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.1.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="yJIAANrU3XFK0CJvJHu-" version="23.1.5" type="device" pages="7">
   <diagram name="Сторінка-1" id="6CkBflYlapU7UY46eusm">
-    <mxGraphModel dx="1941" dy="1027" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2291" dy="1027" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -281,46 +281,80 @@
     </mxGraphModel>
   </diagram>
   <diagram id="gHJ2zxvbs4MUtl4l6Puc" name="Page-5">
-    <mxGraphModel dx="1114" dy="1027" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1464" dy="1027" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="FUwbXfHOJUCFiFXZh5Ak-1" value="Student" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+        <mxCell id="FUwbXfHOJUCFiFXZh5Ak-1" value="Student" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
           <mxGeometry x="100" y="230" width="30" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="FUwbXfHOJUCFiFXZh5Ak-2" value="ID&lt;br&gt;&lt;br&gt;String: name&lt;br&gt;String: email&lt;br&gt;String: password&lt;br&gt;Int: age&lt;br&gt;&lt;br&gt;Group: ID" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="FUwbXfHOJUCFiFXZh5Ak-2" value="ID&lt;br&gt;&lt;br&gt;String: name&lt;br&gt;String: email&lt;br&gt;String: password&lt;br&gt;Int: age&lt;br&gt;&lt;br&gt;Group: ID" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="210" y="190" width="240" height="240" as="geometry" />
         </mxCell>
-        <mxCell id="FUwbXfHOJUCFiFXZh5Ak-4" value="One" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="FUwbXfHOJUCFiFXZh5Ak-4" value="One" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="590" y="280" width="150" height="150" as="geometry" />
         </mxCell>
-        <mxCell id="FUwbXfHOJUCFiFXZh5Ak-5" value="CarModel" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="FUwbXfHOJUCFiFXZh5Ak-5" value="CarModel" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="150" y="700" width="120" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="FUwbXfHOJUCFiFXZh5Ak-6" value="CarComplect" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="FUwbXfHOJUCFiFXZh5Ak-6" value="CarComplect" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="320" y="640" width="120" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="FUwbXfHOJUCFiFXZh5Ak-7" value="CarEngine" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="FUwbXfHOJUCFiFXZh5Ak-7" value="CarEngine" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="640" y="640" width="120" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="FUwbXfHOJUCFiFXZh5Ak-8" value="CarComplect&lt;br&gt;-&lt;br&gt;CarEngine" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+        <mxCell id="FUwbXfHOJUCFiFXZh5Ak-8" value="CarComplect&lt;br&gt;-&lt;br&gt;CarEngine" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
           <mxGeometry x="460" y="510" width="160" height="160" as="geometry" />
         </mxCell>
-        <mxCell id="FUwbXfHOJUCFiFXZh5Ak-9" value="CarColor" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="FUwbXfHOJUCFiFXZh5Ak-9" value="CarColor" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="640" y="800" width="120" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="FUwbXfHOJUCFiFXZh5Ak-10" value="CarComplect&lt;br&gt;-&lt;br&gt;CarColor&lt;br&gt;- image" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+        <mxCell id="FUwbXfHOJUCFiFXZh5Ak-10" value="CarComplect&lt;br&gt;-&lt;br&gt;CarColor&lt;br&gt;- image" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
           <mxGeometry x="460" y="750" width="160" height="160" as="geometry" />
         </mxCell>
-        <mxCell id="FUwbXfHOJUCFiFXZh5Ak-11" value="Admin" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+        <mxCell id="FUwbXfHOJUCFiFXZh5Ak-11" value="Admin" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
           <mxGeometry x="70" y="580" width="30" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="FUwbXfHOJUCFiFXZh5Ak-14" value="User" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+        <mxCell id="FUwbXfHOJUCFiFXZh5Ak-14" value="User" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
           <mxGeometry x="70" y="930" width="30" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="FUwbXfHOJUCFiFXZh5Ak-15" value="Favorites" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="FUwbXfHOJUCFiFXZh5Ak-15" value="Favorites" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="160" y="970" width="120" height="80" as="geometry" />
         </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="5qTo-bjJ2reRX84JV0vr" name="Page-6">
+    <mxGraphModel dx="1860" dy="708" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="zrTMdAk5zyutBp0o6cKp-1" value="DB&lt;br&gt;&lt;br&gt;User --&amp;gt; Post&lt;br&gt;Post &amp;lt;--&amp;gt; Tag" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="660" y="200" width="190" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="zrTMdAk5zyutBp0o6cKp-2" value="VueJs&lt;br&gt;&lt;br&gt;- Posts" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+          <mxGeometry x="-60" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="zrTMdAk5zyutBp0o6cKp-3" value="1 Paginate&lt;br&gt;&lt;br&gt;Controller" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="zrTMdAk5zyutBp0o6cKp-4" value="SELECT&lt;br&gt;LIMIT&lt;br&gt;OFSET" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="zrTMdAk5zyutBp0o6cKp-5" value="posts = postRepository.findAll()&lt;br&gt;// SELECT * FROM&amp;nbsp;&lt;br&gt;&lt;br&gt;postByTag = post.stream().filter()&lt;br&gt;// inServerMemory&lt;br&gt;&lt;br&gt;! Если есть возможность держать всю коллекцию сущностей например в Redis&amp;nbsp;&lt;br&gt;То данный способ очень хорош" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#d80073;fontColor=#ffffff;strokeColor=#A50040;" vertex="1" parent="1">
+          <mxGeometry x="240" y="320" width="320" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="zrTMdAk5zyutBp0o6cKp-6" value="postRepository {&lt;br&gt;// Описать запрос к базе&lt;br&gt;getByTag(Tag)&lt;br&gt;}&lt;br&gt;&lt;br&gt;posts = postRepository.getByTag(tag)&lt;br&gt;// SELECT * FROM&amp;nbsp;&lt;br&gt;JOIN post_tags on post.id = post_tags.post_id&lt;br&gt;JOIN tags on tags.id = post_tags.tag.id&lt;br&gt;WHERE tags.is = &lt;b&gt;InputTagId&lt;/b&gt;&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+          <mxGeometry x="240" y="520" width="510" height="250" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="oBQ61FXudHhL7A3_R8Jd" name="Page-7">
+    <mxGraphModel dx="1464" dy="1027" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
       </root>
     </mxGraphModel>
   </diagram>
