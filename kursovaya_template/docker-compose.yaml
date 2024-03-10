@@ -12,6 +12,8 @@ services:
       - vpu111.front.public
       - vpu111.api.laravel
       - vpu111.api.node
+      - vpu111.api.node.jonny
+      - vpu111.api.node.sunny
     networks:
       - vpu111
 
@@ -31,6 +33,30 @@ services:
       - SERVER_PORT=3003
     ports:
       - '3003:3003'
+    volumes:
+      - './back/node/src:/app'
+    networks:
+      - vpu111
+
+  vpu111.api.node.sunny:
+    build: ./back/node
+    environment:
+      - SERVER_NAME=api.node.sunny
+      - SERVER_PORT=3005
+    ports:
+      - '3005:3005'
+    volumes:
+      - './back/node/src:/app'
+    networks:
+      - vpu111
+
+  vpu111.api.node.jonny:
+    build: ./back/node
+    environment:
+      - SERVER_NAME=api.node.jonny
+      - SERVER_PORT=3006
+    ports:
+      - '3006:3006'
     volumes:
       - './back/node/src:/app'
     networks:
