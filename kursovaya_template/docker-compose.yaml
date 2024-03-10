@@ -1,0 +1,37 @@
+version: '3'
+services:
+
+
+  vpu111.front.admin:
+    build: ./front/admin
+    ports:
+      - '5173:5173'
+    volumes:
+      - './front/admin/src:/app'
+    networks:
+      - vpu111
+
+  vpu111.front.public:
+    build: ./front/public
+    ports:
+      - '3000:3000'
+    volumes:
+      - './front/public/src:/app'
+    networks:
+      - vpu111
+
+  vpu111.db.mysql.main:
+    container_name: vpu111.db.mysql.main
+    image: mysql
+    volumes:
+      - ./volumes/db/mysql/main:/var/lib/mysql
+    env_file:
+      - .env
+    ports:
+      - '3306:3306'
+    networks:
+      - vpu111
+
+networks:
+  vpu111:
+    driver: bridge
