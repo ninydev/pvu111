@@ -1,0 +1,12 @@
+{
+  "name": "Api.Node",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "dependencies": {
+    "uuid": "^9.0.0"
+  }
+}

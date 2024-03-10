@@ -11,6 +11,7 @@ services:
       - vpu111.front.admin
       - vpu111.front.public
       - vpu111.api.laravel
+      - vpu111.api.node
     networks:
       - vpu111
 
@@ -23,6 +24,17 @@ services:
     networks:
       - vpu111
 
+  vpu111.api.node:
+    build: ./back/node
+    environment:
+      - SERVER_NAME=api.node
+      - SERVER_PORT=3003
+    ports:
+      - '3003:3003'
+    volumes:
+      - './back/node/src:/app'
+    networks:
+      - vpu111
 
 
   vpu111.front.admin:
