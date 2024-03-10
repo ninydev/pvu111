@@ -14,6 +14,7 @@ services:
       - vpu111.api.node
       - vpu111.api.node.jonny
       - vpu111.api.node.sunny
+      - vpu111.storage
     networks:
       - vpu111
 
@@ -90,6 +91,24 @@ services:
       - .env
     ports:
       - '3306:3306'
+    networks:
+      - vpu111
+
+  vpu111.storage:
+    container_name: vpu111.storage
+    image: minio/minio:latest
+    command: server --console-address :9001 /data
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - ./volumes/minio:/data
+    expose:
+      - "9000"
+      - "9001"
+    environment:
+      MINIO_ROOT_USER: user
+      MINIO_ROOT_PASSWORD: password
     networks:
       - vpu111
 
