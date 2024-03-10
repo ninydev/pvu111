@@ -1,6 +1,18 @@
 version: '3'
 services:
 
+  vpu111.nginx.router:
+    image: nginx
+    volumes:
+      - ./services/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - '80:80'
+    depends_on:
+      - vpu111.front.admin
+      - vpu111.front.public
+    networks:
+      - vpu111
+
 
   vpu111.front.admin:
     build: ./front/admin

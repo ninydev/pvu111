@@ -15,4 +15,4 @@ COPY ./src /app
 RUN npm install
 
 # Запустим код - выполнив команду из packaje.josn
-CMD ["npm", "dev"]
+CMD ["npm", "run", "dev"]
