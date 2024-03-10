@@ -10,8 +10,19 @@ services:
     depends_on:
       - vpu111.front.admin
       - vpu111.front.public
+      - vpu111.api.laravel
     networks:
       - vpu111
+
+  vpu111.api.laravel:
+    build: ./back/laravel
+    ports:
+      - '8000:8000'
+    volumes:
+      - './back/laravel/src:/app'
+    networks:
+      - vpu111
+
 
 
   vpu111.front.admin:
