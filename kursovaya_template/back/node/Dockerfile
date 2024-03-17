@@ -11,8 +11,14 @@ WORKDIR /app
 # Скопируем код из папки src в контейнер
 COPY ./src /app
 
+# Удаляем установленные снаружи зависимости
+RUN rm -rf /app/node_modules
+
+
 # Установим зависимости
 RUN npm install
 
 # Запустим код - выполнив команду из packaje.josn
-CMD ["npm", "run", "start"]
+# Перенесем процесс запуска контейнера
+# 1 Вариант - в файл docker-compose
+# CMD ["npm", "run", "start"]

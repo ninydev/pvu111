@@ -29,6 +29,8 @@ services:
 
   vpu111.api.node:
     build: ./back/node
+    working_dir: /app
+    command: sh -c "npm install && npm run start"
     environment:
       - SERVER_NAME=api.node
       - SERVER_PORT=3003
@@ -41,6 +43,8 @@ services:
 
   vpu111.api.node.sunny:
     build: ./back/node
+    working_dir: /app
+    command: sh -c "npm install && npm run start"
     environment:
       - SERVER_NAME=api.node.sunny
       - SERVER_PORT=3005
@@ -53,6 +57,8 @@ services:
 
   vpu111.api.node.jonny:
     build: ./back/node
+    working_dir: /app
+    command: sh -c "npm install && npm run start"
     environment:
       - SERVER_NAME=api.node.jonny
       - SERVER_PORT=3006
