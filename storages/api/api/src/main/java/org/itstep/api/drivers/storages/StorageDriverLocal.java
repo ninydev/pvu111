@@ -41,8 +41,8 @@ public class StorageDriverLocal implements StorageDriverInterface
             Files.write(filePath, bytes);
 
             return filePath.toString(); // Файл успешно загружен
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
             return null; // Ошибка загрузки файла
         }
     }

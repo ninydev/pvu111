@@ -2,6 +2,7 @@ package org.itstep.api.controllers;
 
 
 import lombok.RequiredArgsConstructor;
+import org.itstep.api.drivers.storages.DriverEnum;
 import org.itstep.api.services.StorageService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,7 +25,10 @@ public class FileController {
         String fileName = file.getOriginalFilename();
         System.out.println("fileName: " + fileName);
 
-        String filePath = storageService.put("Test", fileName, file);
+        storageService.disk(DriverEnum.Local).put("files", fileName, file);
+        storageService.disk(DriverEnum.MinIo).put("files", fileName, file);
+
+        String filePath = storageService.put("files", fileName, file);
 
         return ResponseEntity.ok(filePath);
     }
