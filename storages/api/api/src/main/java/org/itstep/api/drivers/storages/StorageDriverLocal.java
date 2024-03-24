@@ -15,8 +15,12 @@ public class StorageDriverLocal implements StorageDriverInterface
     // Путь к локальной папке на сервере, где будут храниться файлы
     private static final String localStorageDir = "/home/keeper/temp/spring";
 
+    public StorageDriverLocal() {
+        System.out.println(" Storage DriverLocal Created");
+    }
+
     @Override
-    public boolean put(String bucketName, String fileName, MultipartFile file) {
+    public String put(String bucketName, String fileName, MultipartFile file) {
         try {
             // Определяем путь к папке, куда будем сохранять файл
             String uploadDir = localStorageDir + File.separator + bucketName;
@@ -36,10 +40,10 @@ public class StorageDriverLocal implements StorageDriverInterface
             // Записываем байты файла в созданный путь
             Files.write(filePath, bytes);
 
-            return true; // Файл успешно загружен
+            return filePath.toString(); // Файл успешно загружен
         } catch (IOException e) {
             e.printStackTrace();
-            return false; // Ошибка загрузки файла
+            return null; // Ошибка загрузки файла
         }
     }
 }

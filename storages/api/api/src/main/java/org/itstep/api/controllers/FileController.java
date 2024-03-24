@@ -24,9 +24,9 @@ public class FileController {
         String fileName = file.getOriginalFilename();
         System.out.println("fileName: " + fileName);
 
-        storageService.put("Test", fileName, file);
+        String filePath = storageService.put("Test", fileName, file);
 
-        return ResponseEntity.ok(fileName);
+        return ResponseEntity.ok(filePath);
     }
 
 
