@@ -45,6 +45,20 @@ async function main() {
             }
         }
     }
+
+    const containerName = "avatars";
+    const fileName = "./blonda2.jpg";
+
+
+    const containerClient = blobServiceClient.getContainerClient(containerName);
+    const blockBlobClient = containerClient.getBlockBlobClient(fileName);
+
+
+    await blockBlobClient.uploadFile("./blonda2.jpg");
+
+    await blockBlobClient.setHTTPHeaders({
+        blobContentType: "image/jpeg"
+    });
 }
 
 main().catch((error) => {
