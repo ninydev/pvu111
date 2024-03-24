@@ -2,6 +2,7 @@ package org.itstep.api.controllers;
 
 
 import lombok.RequiredArgsConstructor;
+import org.itstep.api.services.StorageService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,10 +17,14 @@ import java.util.UUID;
 @RequestMapping("/api/files")
 public class FileController {
 
+    private final StorageService storageService;
+
     @PostMapping
     public ResponseEntity<String> save(@RequestParam("file") MultipartFile file) {
         String fileName = file.getOriginalFilename();
         System.out.println("fileName: " + fileName);
+
+        storageService.put("Test", fileName, file);
 
         return ResponseEntity.ok(fileName);
     }
