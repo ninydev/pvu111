@@ -21,6 +21,7 @@ public class StorageDriverLocal implements StorageDriverInterface
 
     @Override
     public String put(String bucketName, String fileName, MultipartFile file) {
+        System.out.println(" Отпавляю файл на MinIo ");
         try {
             // Определяем путь к папке, куда будем сохранять файл
             String uploadDir = localStorageDir + File.separator + bucketName;

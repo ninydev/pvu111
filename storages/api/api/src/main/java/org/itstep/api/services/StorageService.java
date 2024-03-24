@@ -46,6 +46,16 @@ public class StorageService {
         return drivers.get(disk);
     }
 
+
+    /**
+     * Отдавать экземпляр драйвера по умочанию
+     * тогда не понадобиться описывать фасад для всего драйвера
+     * @return
+     */
+    public StorageDriverInterface disk () {
+        return driver;
+    }
+
     /**
      * Оболочка под драйвер - выбранный по умолчанию
      * @param bucketName
