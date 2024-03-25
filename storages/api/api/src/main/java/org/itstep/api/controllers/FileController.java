@@ -25,8 +25,8 @@ public class FileController {
         String fileName = file.getOriginalFilename();
         System.out.println("fileName: " + fileName);
 
-        storageService.disk(DriverEnum.Local).put("files", fileName, file);
-        storageService.disk(DriverEnum.MinIo).put("files", fileName, file);
+//        storageService.disk(DriverEnum.Local).put("files", fileName, file);
+//        storageService.disk(DriverEnum.MinIo).put("files", fileName, file);
 
         String filePath = storageService.put("files", fileName, file);
 

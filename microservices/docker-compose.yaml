@@ -1,0 +1,63 @@
+version: '3'
+
+services:
+  api.pv111:
+    build: api
+    depends_on:
+      - bl1.pv111
+    links:
+      - bl1.pv111
+    volumes:
+      - ./api/src:/app
+    environment:
+      - SERVER_NAME=api
+    networks:
+      - pv111
+
+  bl1.pv111:
+    build: bl
+    container_name: bl1.pv111
+    volumes:
+      - ./bl/src:/app
+    environment:
+      - SERVER_NAME=bl1
+    networks:
+      - pv111
+
+  bl2.pv111:
+    build: bl
+    container_name: bl2.pv111
+    volumes:
+      - ./bl/src:/app
+    environment:
+      - SERVER_NAME=bl2
+    networks:
+      - pv111
+
+  router.bl.pv111:
+    container_name: router.bl.pv111
+    image: nginx:alpine
+    depends_on:
+      - bl1.pv111
+      - bl2.pv111
+    volumes:
+      - ./services/nginx/router.bl.nginx.conf:/etc/nginx/nginx.conf:ro
+    networks:
+      - pv111
+
+  router.main.pv111:
+    image: nginx:alpine
+    depends_on:
+      - api.pv111
+      - bl1.pv111
+    volumes:
+      - ./services/nginx/router.main.nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "80:80"
+    networks:
+      - pv111
+
+networks:
+  pv111:
+    driver: bridge
+

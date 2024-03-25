@@ -34,7 +34,7 @@ public class StorageService {
         drivers.put(DriverEnum.Local, new StorageDriverLocal());
         drivers.put(DriverEnum.MinIo, new StorageDriverMinIo(minioUrl, minioUsername, minioPassword));
 
-        driver = drivers.get(DriverEnum.Local);
+        driver = drivers.get(DriverEnum.MinIo);
     }
 
     /**
