@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FileController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,3 +26,6 @@ Route::post('login', [AuthController::class,'login'])->name('api.auth.login');
 Route::post('refresh', [AuthController::class,'refresh'])->name('api.auth.refresh');
 Route::post('logout', [AuthController::class,'logout'])->name('api.auth.logout');
 Route::get('me', [AuthController::class,'me'])->name('api.auth.me');
+
+Route::post('upload', [FileController::class,'upload'])->name('api.file.upload');
+Route::get('files', [FileController::class,'index'])->name('api.file.show_all');
