@@ -1,0 +1,7 @@
+.idea
+
+.env
+
+volumes
+node_modules
+vendor
