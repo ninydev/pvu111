@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  # Хранилище
+  vpu111.storage.minio:
+    container_name: vpu111.storage.minio
+    image: minio/minio:latest
+    command: server --console-address :9001 /data
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - ./volumes/minio:/data
+    expose:
+      - "9000"
+      - "9001"
+    env_file:
+      - ./.env
+
+  # SQL база данных
+  vpu111.db.mysql:
+    container_name: vpu111.db.mysql
+    image: mysql
+    ports:
+      - "3306:3306"
+    volumes: # Для сохранения данных я смонтирую папку
+      - ./volumes/mysql:/var/lib/mysql
+    env_file: # Мне нужно сообщить - какие настройки использовать
+      - .env
+    environment: # Плохой вариант - описать переменные прямо тут
+      - SERVER_NAME=db.mySql
