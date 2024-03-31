@@ -8,8 +8,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
 
-class UserModel extends Authenticatable
+class UserModel extends Authenticatable implements JWTSubject
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -51,5 +52,20 @@ class UserModel extends Authenticatable
     public function files(): HasMany
     {
         return $this->hasMany(FileModel::class, 'owner_id');
+    }
+
+    //put these methods at the bottom of your class body
+
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    public function getJWTCustomClaims()
+    {
+        return [
+            'email'=>$this->email,
+            'name'=>$this->name
+        ];
     }
 }
