@@ -36,10 +36,26 @@ return [
             'throw' => false,
         ],
 
-        'for_files' => [
+        'for_chunk' => [
             'driver' => 'local',
-            'root' => storage_path('app/files'),
+            'root' => storage_path('app/chunk'),
             'throw' => false,
+        ],
+
+        'for_files' => [
+// Настройки для локального хранилища
+//            'driver' => 'local',
+//            'root' => storage_path('app/files'),
+//            'throw' => false,
+
+            'driver' => 's3',
+            'key' => env('MINIO_KEY'),
+            'secret' => env('MINIO_SECRET'),
+            'region' => env('MINIO_REGION'),
+            'bucket' => env('MINIO_BUCKET_FILES'),
+            'url' => env('MINIO_URL'),
+            'endpoint' => env('MINIO_ENDPOINT'),
+            'throw' => true,
         ],
 
         'public' => [

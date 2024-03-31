@@ -18,7 +18,8 @@ class FileModel extends Model
         'path',
         'url',
         'name',
-        'owner_id'
+        'owner_id',
+        'is_upload'
     ];
 
     public function owner(): BelongsTo

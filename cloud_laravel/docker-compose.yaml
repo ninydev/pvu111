@@ -1,6 +1,12 @@
 version: '3'
 
 services:
+  # InMemory DB база данных
+  vpu111.db.redis:
+    image: redis
+    ports:
+      - "6379:6379"
+
   # Хранилище
   vpu111.storage.minio:
     container_name: vpu111.storage.minio
