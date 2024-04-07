@@ -1,0 +1,97 @@
+
+{
+  locale: 'en',
+  utterance: 'I should go now',
+  settings: undefined,
+  languageGuessed: false,
+  localeIso2: 'en',
+  language: 'English',
+  nluAnswer: {
+    classifications: [ [Object] ],
+    entities: undefined,
+    explanation: undefined
+  },
+  classifications: [ { intent: 'greetings.bye', score: 1 } ],
+  intent: 'greetings.bye',
+  score: 1,
+  domain: 'default',
+  sourceEntities: [
+    {
+      start: 12,
+      end: 14,
+      resolution: [Object],
+      text: 'now',
+      typeName: 'datetimeV2.datetime',
+      entity: 'datetime'
+    }
+  ],
+  entities: [
+    {
+      start: 12,
+      end: 14,
+      len: 3,
+      accuracy: 0.95,
+      sourceText: 'now',
+      utteranceText: 'now',
+      entity: 'datetime',
+      rawEntity: 'datetimeV2.datetime',
+      resolution: [Object]
+    }
+  ],
+  answers: [
+    { answer: 'Till next time', opts: undefined },
+    { answer: 'see you soon!', opts: undefined }
+  ],
+  answer: 'see you soon!',
+  actions: [],
+  sentiment: {
+    score: 0.5,
+    numWords: 4,
+    numHits: 1,
+    average: 0.125,
+    type: 'senticon',
+    locale: 'en',
+    vote: 'positive'
+  }
+}
+
+
+
+
+{
+  locale: 'en',
+  utterance: 'Hello world',
+  settings: undefined,
+  languageGuessed: false,
+  localeIso2: 'en',
+  language: 'English',
+  nluAnswer: {
+    classifications: [ [Object], [Object] ],
+    entities: undefined,
+    explanation: undefined
+  },
+  classifications: [
+    { intent: 'greetings.hello', score: 1 },
+    { intent: 'greetings.bye', score: 0 }
+  ],
+  intent: 'greetings.hello',
+  score: 1,
+  domain: 'default',
+  sourceEntities: [],
+  entities: [],
+  answers: [
+    { answer: 'Hey there!', opts: undefined },
+    { answer: 'Greetings!', opts: undefined }
+  ],
+  answer: 'Hey there!',
+  actions: [],
+  sentiment: {
+    score: 0.313,
+    numWords: 2,
+    numHits: 1,
+    average: 0.1565,
+    type: 'senticon',
+    locale: 'en',
+    vote: 'positive'
+  }
+}

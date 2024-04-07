@@ -1,0 +1,15 @@
+{
+  "name": "test_nlp_libs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "natural": "^6.12.0",
+    "node-nlp": "^4.27.0"
+  }
+}
