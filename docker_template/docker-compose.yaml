@@ -1,0 +1,16 @@
+version: '3'
+services:
+
+  vpu111.mysql.db:
+    # Образ будет браться сразу с репозитория
+    # Указывание версии сервера положительно отразиться на коде
+    # Тут создается только сервер баз данных
+    image: mysql:8.3
+    # https://hub.docker.com/_/mysql Environment Variables
+
+
+
+
+networks:
+  vpu111_net:
+    driver: bridge

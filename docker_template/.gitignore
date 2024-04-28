@@ -2,3 +2,4 @@
 volumes
 node_modules
 vendor
+.env
