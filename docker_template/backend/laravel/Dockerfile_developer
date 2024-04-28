@@ -1,0 +1,43 @@
+# Для разработки возьмем версию под командную строку
+FROM php:8.3-cli
+
+# Установка утилиты unzip
+RUN apt update && apt install -y unzip mc
+
+# Установка Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# Устанавливаем необходимые расширения языка PHP
+
+# Установка библиотеки ImageMagick и её заголовочных файлов
+# Установка библиотек и заголовочных файлов, необходимых для GD
+RUN apt-get update && apt-get install -y \
+    libfreetype6-dev \
+    libjpeg62-turbo-dev \
+    libpng-dev
+
+# Установка GD
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install -j$(nproc) gd
+
+# Установка ImageMagick и его заголовочных файлов
+RUN apt-get install -y libmagickwand-dev; \
+    pecl install imagick; \
+    docker-php-ext-enable imagick;
+
+# Устанавливаем необходимые расширения PHP
+RUN docker-php-ext-install pdo pdo_mysql
+
+# Устанавливаем рабочую директорию
+WORKDIR /var/www/html
+# Копирование и установка зависимостей PHP
+COPY src /var/www/html
+
+RUN composer install
+
+# Открываем порт для доступа к приложению
+EXPOSE 8000
+
+# Запускаю сервер
+CMD ["./artisan", "serve", "--host=0.0.0.0", "--port=8000"]
+# CMD ["/usr/bin/php -d variables_order=EGPCS /var/www/html/artisan serve --host=0.0.0.0 --port=8000"]

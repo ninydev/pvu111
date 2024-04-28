@@ -1,6 +1,18 @@
 version: '3'
 services:
 
+  api.laravel:
+    build:
+      context: ./backend/laravel
+      dockerfile: Dockerfile_developer
+    networks:
+      - vpu111_net
+
+  api.spring:
+    build: ./backend/spring/api/
+    networks:
+      - vpu111_net
+
   vpu111.mysql.db:
     # Образ будет браться сразу с репозитория
     # Указывание версии сервера положительно отразиться на коде
@@ -28,7 +40,8 @@ services:
     # Это не обязательный параметр
     volumes:
       - ./volumes/mysql:/var/lib/mysql
-
+    ports:
+      - "3310:3306"
 
   vpu111.phpmyadmin:
     image: phpmyadmin
