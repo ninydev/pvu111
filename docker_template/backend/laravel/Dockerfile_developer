@@ -2,7 +2,10 @@
 FROM php:8.3-cli
 
 # Установка утилиты unzip
-RUN apt update && apt install -y unzip mc
+RUN apt update && apt install -y unzip mc supervisor
+
+# Копирование конфигурационного файла supervisord для воркеров очереди
+COPY autostart.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Установка Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
@@ -33,11 +36,25 @@ WORKDIR /var/www/html
 # Копирование и установка зависимостей PHP
 COPY src /var/www/html
 
+# Зависимости будут установлены 1 раз - при создании контейнера
+# они будут затерты - если мы подключим внешний диск
 RUN composer install
 
 # Открываем порт для доступа к приложению
 EXPOSE 8000
 
+# Построим относительную ссылку (для локального файлового хранилища)
+RUN ./artisan storage:link
+# Выполним миграцию
+# RUN ./artisan migrate
+
 # Запускаю сервер
-CMD ["./artisan", "serve", "--host=0.0.0.0", "--port=8000"]
-# CMD ["/usr/bin/php -d variables_order=EGPCS /var/www/html/artisan serve --host=0.0.0.0 --port=8000"]
+## CMD ["./artisan", "migrate"] # не имеет смысла тут - поскольку контейнера еще нет - сети (связи с базой ) нет
+## CMD ["./artisan", "queue:work"]
+# CMD ["./artisan", "serve", "--host=0.0.0.0", "--port=8000"]
+
+# Таким образом - вместо запуска 1 программы (веб сервер) - я запущу 3
+# При каждом старте - миграцию один раз
+# И всегда - обработчик очереди и веб сервер
+
+CMD ["supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]

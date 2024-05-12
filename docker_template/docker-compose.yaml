@@ -2,6 +2,8 @@ version: '3'
 services:
 
   api.laravel:
+    depends_on:
+      - vpu111.mysql.db
     build:
       context: ./backend/laravel
       dockerfile: Dockerfile_developer
